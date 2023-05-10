@@ -8,14 +8,15 @@ public class PrintPrime {
         int number = Integer.parseInt(scanner.nextLine());
         int count = 0;
         int num = 2;
+        int times = 0;
         while (count < number) {
-            int count2 = 0;
+
             for (int i = 1; i < num; i++) {
                 if (num % i == 0) {
-                    count2++;
+                    times++;
                 }
             }
-            if (count2 == 1) {
+            if (times == 1) {
                 System.out.println(num + ",");
                 count++;
             }
