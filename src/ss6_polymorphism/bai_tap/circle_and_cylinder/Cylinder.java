@@ -1,21 +1,26 @@
 package ss6_polymorphism.bai_tap.circle_and_cylinder;
 
 public class Cylinder extends Circle {
-    double radius;
-    String color;
-    double height;
+    private double height;
 
-    public Cylinder(double radius,String color,double height){
-        super(radius,color);
-        this.height=height;
+    public Cylinder(double radius, String color, double height) {
+        super(radius, color);
+        this.height = height;
     }
+
     public double getRadius() {
-        return radius;
+        return super.getRadius();
     }
+
     public double getVolume() {
-        return super.getArea()*height;
+        return super.getArea() * height;
     }
+
     public String getColor() {
-        return color;
+        return super.getColor();
+    }
+
+    public double getHeight() {
+        return height;
     }
 }

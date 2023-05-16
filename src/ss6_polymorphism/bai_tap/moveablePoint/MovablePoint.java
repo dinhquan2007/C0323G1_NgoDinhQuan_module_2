@@ -3,9 +3,8 @@ package ss6_polymorphism.bai_tap.moveablePoint;
 import java.util.Arrays;
 
 public class MovablePoint extends Point {
-   private float xSpeed;
+    private float xSpeed;
     private float ySpeed;
-    float[] speed = new float[2];
 
     public MovablePoint(float x, float y, float xSpeed, float ySpeed) {
         super(x, y);
@@ -39,6 +38,7 @@ public class MovablePoint extends Point {
     }
 
     public float[] getSpeed() {
+        float[] speed = new float[2];
         speed[0] = xSpeed;
         speed[1] = ySpeed;
         return speed;

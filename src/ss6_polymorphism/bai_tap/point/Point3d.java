@@ -3,8 +3,7 @@ package ss6_polymorphism.bai_tap.point;
 import java.util.Arrays;
 
 public class Point3d extends Point2d {
-    float z;
-    float[] xyz = new float[3];
+    private float z;
 
     public Point3d(float x, float y, float z) {
         super(x, y);
@@ -29,6 +28,7 @@ public class Point3d extends Point2d {
     }
 
     public float[] getXYZ() {
+        float[] xyz = new float[3];
         xyz[0] = getX();
         xyz[1] = getY();
         xyz[2] = getZ();

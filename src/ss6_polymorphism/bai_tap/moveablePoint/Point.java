@@ -5,13 +5,14 @@ import java.util.Arrays;
 public class Point {
     private float x;
     private float y;
-    private float [] xy= new float[2];
-    public Point(){
+
+    public Point() {
 
     }
-    public Point(float x,float y){
-        this.x=x;
-        this.y=y;
+
+    public Point(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
     public float getX() {
@@ -21,9 +22,11 @@ public class Point {
     public float getY() {
         return this.y;
     }
-    public float [] getXY(){
-        xy[0]=this.x;
-        xy[1]=this.y;
+
+    public float[] getXY() {
+        float[] xy = new float[2];
+        xy[0] = this.x;
+        xy[1] = this.y;
         return xy;
     }
 
@@ -34,15 +37,10 @@ public class Point {
     public void setY(float y) {
         this.y = y;
     }
-    public void setXY(float x,float y){
-        this.x=x;
-        this.y=y;
-    }
 
-    public float[] getXy() {
-        xy[0]=x;
-        xy[1]=y;
-        return xy;
+    public void setXY(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
     @Override
