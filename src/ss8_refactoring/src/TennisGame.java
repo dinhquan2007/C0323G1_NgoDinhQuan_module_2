@@ -1,8 +1,13 @@
 public class TennisGame {
-    private String player1Name;
-    private String player2Name;
 
-    public static void getScore(String player1Name, String player2Name, int mScore1, int mScore2) {
+    /**
+     * clean code by Quan
+     * 1,bọc lại các câu lệnh bằng ngoặc nhọn
+     * 2,bỏ đi biến thừa
+     * @param mScore1
+     * @param mScore2
+     */
+    public static void getScore(int mScore1, int mScore2) {
         StringBuilder score = new StringBuilder();
         int tempScore = 0;
         if (mScore1 == mScore2) {
