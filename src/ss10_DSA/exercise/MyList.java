@@ -35,14 +35,14 @@ public class MyList<E> {
 
 
     public E remote(int index) {
-        if (index<0||index>elements.length){
-            throw new IllegalArgumentException("không có vị trí :"+index);
+        if (index < 0 || index > elements.length) {
+            throw new IllegalArgumentException("không có vị trí :" + index);
         }
-        E element=(E) elements[index];
-        for (int i = 0; i < size-1; i++) {
-            elements[i]=elements[i+1];
+        E element = (E) elements[index];
+        for (int i = 0; i < size - 1; i++) {
+            elements[i] = elements[i + 1];
         }
-        elements[size-1]=null;
+        elements[size - 1] = null;
         size--;
         return element;
     }
