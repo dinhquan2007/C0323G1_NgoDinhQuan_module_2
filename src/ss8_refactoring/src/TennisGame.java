@@ -1,33 +1,28 @@
 public class TennisGame {
-
     /**
-     * clean code by Quan
-     * 1,bọc lại các câu lệnh bằng ngoặc nhọn
-     * 2,bỏ đi biến thừa
-     * @param mScore1
-     * @param mScore2
+     * QUAN CLEAN CODE
+     * bỏ các biến thừa
+     * tách phương thức
+     * refactoring lại các biến và phương thức
+     * @param point
+     * @return
      */
-    public static void getScore(int mScore1, int mScore2) {
-        StringBuilder score = new StringBuilder();
-        int tempScore = 0;
+    public static String readPoint(int point) {
+        String score = " ";
+        switch (point) {
+            case 0 -> score += "Love";
+            case 1 -> score += "Fifteen";
+            case 2 -> score += "Thirty";
+            case 3 -> score += "Forty";
+        }
+        return score;
+    }
+
+    public static String getScore(int mScore1, int mScore2) {
+        StringBuilder score = new StringBuilder(readPoint(mScore1));
+        int tempScore;
         if (mScore1 == mScore2) {
-            switch (mScore1) {
-                case 0:
-                    score = new StringBuilder("Love-All");
-                    break;
-                case 1:
-                    score = new StringBuilder("Fifteen-All");
-                    break;
-                case 2:
-                    score = new StringBuilder("Thirty-All");
-                    break;
-                case 3:
-                    score = new StringBuilder("Forty-All");
-                    break;
-                default:
-                    score = new StringBuilder("Deuce");
-                    break;
-            }
+            score.append("All");
         } else if (mScore1 >= 4 || mScore2 >= 4) {
             int minusResult = mScore1 - mScore2;
             if (minusResult == 1) {
@@ -43,26 +38,18 @@ public class TennisGame {
             for (int i = 1; i < 3; i++) {
                 if (i == 1) {
                     tempScore = mScore1;
-                }
-                else{
+                } else {
                     score.append("-");
                     tempScore = mScore2;
                 }
                 switch (tempScore) {
-                    case 0:
-                        score.append("Love");
-                        break;
-                    case 1:
-                        score.append("Fifteen");
-                        break;
-                    case 2:
-                        score.append("Thirty");
-                        break;
-                    case 3:
-                        score.append("Forty");
-                        break;
+                    case 0 -> score.append("Love");
+                    case 1 -> score.append("Fifteen");
+                    case 2 -> score.append("Thirty");
+                    case 3 -> score.append("Forty");
                 }
             }
         }
+        return score.toString();
     }
 }
