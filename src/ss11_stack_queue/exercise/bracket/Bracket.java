@@ -9,24 +9,27 @@ public class Bracket {
 
         System.out.println("Nhập vào biểu thức cần kiểm tra: ");
         String string = scanner.nextLine();
-        if(!string.contains("(")&&!string.contains(")")){
+        if (!string.contains("(") && !string.contains(")")) {
             System.out.println("biểu thức không chứa dấu ngoặc");
-        }else if (checkBracket(string)){
+        } else if (checkBracket(string)) {
             System.out.println("biểu thức đúng");
+        } else {
+            System.out.println("biểu thức chưa dấu ngoặc không hợp lệ");
         }
     }
+
     public static boolean checkBracket(String string) {
-        Stack<Character> symStack = new Stack<>();
-        Stack<Character> leftStack = new Stack<>();
+        Stack<Character> bracketStack = new Stack<>();
 
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == '(') {
-                symStack.push(string.charAt(i));
-            }
-            if (string.charAt(i) == ')') {
-                leftStack.push(string.charAt(i));
+                bracketStack.push(string.charAt(i));
+            } else if (string.charAt(i) == ')' && bracketStack.isEmpty()) {
+                return false;
+            } else if (string.charAt(i) == ')') {
+                bracketStack.pop();
             }
         }
-        return symStack.size() == leftStack.size();
+        return bracketStack.isEmpty();
     }
 }
