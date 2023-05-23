@@ -2,9 +2,7 @@ package ss12_collection_framework.exercise.product_manager.repository;
 
 import ss12_collection_framework.exercise.product_manager.model.Product;
 
-import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.List;
 
 public interface IProductRepository{
     LinkedList<Product> getAll();
@@ -17,7 +15,7 @@ public interface IProductRepository{
 
     void removeProduct(Product product);
 
-    Product getName(String name);
+    LinkedList<Product> getName(String name);
 
     void arrangeWithPriceIncrease();
 

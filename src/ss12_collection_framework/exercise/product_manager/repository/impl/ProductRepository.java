@@ -3,11 +3,8 @@ package ss12_collection_framework.exercise.product_manager.repository.impl;
 import ss12_collection_framework.exercise.product_manager.model.Product;
 import ss12_collection_framework.exercise.product_manager.repository.IProductRepository;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
-
-import static ss12_collection_framework.exercise.product_manager.service.impl.ProductService.productRepository;
 
 public class ProductRepository implements IProductRepository {
     private static final LinkedList<Product> products=new LinkedList<>();
@@ -57,13 +54,15 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Product getName(String name) {
+    public LinkedList<Product> getName(String name) {
+        LinkedList<Product> linkedListProduct=new LinkedList<>();
         for (Product p:products) {
-            if (p.getNameProduct().equals(name)){
-                return p;
+            if (p.getNameProduct().contains(name)){
+                linkedListProduct.add(p);
             }
         }
-        return null;
+        return linkedListProduct;
+
     }
 
     @Override

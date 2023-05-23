@@ -8,8 +8,8 @@ import ss12_collection_framework.exercise.product_manager.service.IProductServic
 import java.util.*;
 
 public class ProductService implements IProductService {
-    public static Scanner scanner = new Scanner(System.in);
-    public static IProductRepository productRepository = new ProductRepository();
+    private static final Scanner scanner = new Scanner(System.in);
+    public static final IProductRepository productRepository = new ProductRepository();
 
     @Override
     public void displayAll() {
@@ -85,10 +85,15 @@ public class ProductService implements IProductService {
 
     @Override
     public void findWithName() {
-        System.out.println("bạn muốn tìm sản phẩn tên gì??");
+        System.out.println("bạn muốn tìm sản phẩm tên gì??");
         String name = scanner.nextLine();
-        Product product = productRepository.getName(name);
-        System.out.println(product);
+        if (productRepository.getName(name).size() > 0) {
+            for (Product p:productRepository.getName(name)) {
+                System.out.println(p);
+            }
+        } else {
+            System.out.println("không tìm thấy sp nào có tên : " + name);
+        }
     }
 
     @Override
