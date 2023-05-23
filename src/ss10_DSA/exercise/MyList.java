@@ -17,7 +17,7 @@ public class MyList<E> {
     }
 
     public void add(int index, E element) {
-        if (size > elements.length) {
+        if (index > size) {
             throw new IllegalArgumentException("index :" + index);
         } else if (elements.length == size) {
             ensureCapacity(5);
