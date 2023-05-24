@@ -12,7 +12,7 @@ public class LongestString {
         String string = scanner.nextLine();
 
         for (int i = 0; i < string.length(); i++) {
-            if (list.size() > 1 && string.charAt(i) <= list.getLast() && list.contains(string.charAt(i))) {
+            if (list.size() > 1 && string.charAt(i) <= list.getLast()) {
                 list.clear();
             }
             list.add(string.charAt(i));
