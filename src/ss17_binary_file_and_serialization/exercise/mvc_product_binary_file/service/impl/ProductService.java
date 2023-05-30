@@ -7,26 +7,45 @@ import ss17_binary_file_and_serialization.exercise.mvc_product_binary_file.servi
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ProductService implements IProductService {
-    IProductRepository productRepository=new ProductRepository();
-    List<Product> productList=new ArrayList<>();
+    IProductRepository productRepository = new ProductRepository();
+    List<Product> productList = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
+    int choice;
+
     @Override
     public void getAll() {
-        System.out.println(productRepository.readToFile("src/ss17_binary_file_and_serialization/exercise/mvc_product_binary_file/data/data.dat"));
+        productList = productRepository.readToFile();
+        for (Product p : productList) {
+            System.out.println(p);
+        }
     }
 
     @Override
     public void addProduct(Product product) {
-        productList=productRepository.readToFile("src/ss17_binary_file_and_serialization/exercise/mvc_product_binary_file/data/data.dat");
+        productList = productRepository.readToFile();
         productList.add(product);
-        productRepository.writeProductToFile(productList,"src/ss17_binary_file_and_serialization/exercise/mvc_product_binary_file/data/data.dat");
+        productRepository.writeProductToFile(productList);
     }
 
     @Override
     public void deleteProduct(String checkCode) {
-        productList=productRepository.readToFile("src/ss17_binary_file_and_serialization/exercise/mvc_product_binary_file/data/data.dat");
-
+        productList = productRepository.readToFile();
+        if (productRepository.checkId(checkCode) == null) {
+            System.out.println("không có sản phẩm mã :" + checkCode);
+        } else {
+            System.out.println("bạn c muốn xóa :" +productRepository.checkId(checkCode)+"\n" +
+                    "1.xóa\n" +
+                    "2.hủy");
+            choice= Integer.parseInt(scanner.nextLine());
+            if (choice==1){
+                productList.remove(productRepository.checkId(checkCode));
+                System.out.println("đã xóa sản phẩm :" + productRepository.checkId(checkCode));
+                productRepository.writeProductToFile(productList);
+            }
+        }
     }
 
 }

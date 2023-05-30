@@ -14,7 +14,7 @@ public class ReadAndWriteProduct {
             objectOutputStream.flush();
             objectOutputStream.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("không có file");
         }
     }
     public static List<Product> readProductListToFile(java.lang.String path){

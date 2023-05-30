@@ -1,8 +1,9 @@
 package ss17_binary_file_and_serialization.exercise.mvc_product_binary_file.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Product {
+public class Product implements Serializable {
 private java.lang.String code;
 private java.lang.String name;
 private float price;
