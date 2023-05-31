@@ -13,4 +13,14 @@ public class CustomerService implements ICustomerService {
     public void add() {
 
     }
+
+    @Override
+    public void edit() {
+
+    }
+
+    @Override
+    public void getVoucher() {
+
+    }
 }

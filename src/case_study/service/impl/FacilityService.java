@@ -12,4 +12,9 @@ public class FacilityService implements IFacilityService {
     public void add() {
 
     }
+
+    @Override
+    public void edit() {
+
+    }
 }

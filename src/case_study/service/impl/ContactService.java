@@ -7,4 +7,17 @@ public class ContactService implements IContactService {
     public void getAll() {
 
     }
+
+    @Override
+    public void add() {
+
+    }
+
+    @Override
+    public void edit() {
+
+    }
+    public void create(){
+
+    }
 }

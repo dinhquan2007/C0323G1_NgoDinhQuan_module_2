@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class FuramaController {
     private Scanner scanner = new Scanner(System.in);
     int choice;
-    IContactService contactService=new ContactService();
-    IBookingService bookingService=new BookingService();
-    IEmployeeService employeeService=new EmployeeService();
-    IFacilityService facilityService=new FacilityService();
-    ICustomerService customerService=new CustomerService();
+    IContactService contactService = new ContactService();
+    IBookingService bookingService = new BookingService();
+    IEmployeeService employeeService = new EmployeeService();
+    IFacilityService facilityService = new FacilityService();
+    ICustomerService customerService = new CustomerService();
 
     public void displayMainMenu() {
         do {
@@ -76,13 +76,13 @@ public class FuramaController {
                 }
                 switch (choice) {
                     case 1:
-
+                        employeeService.getAll();
                         break;
                     case 2:
-
+                        employeeService.add();
                         break;
                     case 3:
-
+                        employeeService.edit();
                         break;
                     case 4:
 
@@ -98,133 +98,139 @@ public class FuramaController {
     }
 
     void displayCustomerMenu() {
-       do {
-           System.out.println("1.\tDisplay list customers\n" +
-                   "2.\tAdd new customer\n" +
-                   "3.\tEdit customer\n" +
-                   "4.\tReturn main menu\n");
-           try {
-               choice = Integer.parseInt(scanner.nextLine());
-               if (choice<=0||choice>4){
-                   System.out.println("Please enter the options available in the menu");
-               }
-               switch (choice) {
-                   case 1:
-                       employeeService.getAll();
-                       break;
-                   case 2:
+        do {
+            System.out.println("1.\tDisplay list customers\n" +
+                    "2.\tAdd new customer\n" +
+                    "3.\tEdit customer\n" +
+                    "4.\tReturn main menu\n");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                if (choice <= 0 || choice > 4) {
+                    System.out.println("Please enter the options available in the menu");
+                }
+                switch (choice) {
+                    case 1:
+                        customerService.getAll();
+                        break;
+                    case 2:
+                        customerService.add();
+                        break;
+                    case 3:
+                        customerService.edit();
+                        break;
+                    case 4:
+                        return;
+                }
+            } catch (NullPointerException nullPointerException) {
+                System.out.println("do not enter empty characters");
+            } catch (NumberFormatException numberFormatException) {
+                System.out.println("entered wrong format");
+            }
 
-                       break;
-                   case 3:
-
-                       break;
-                   case 4:
-
-                       return;
-
-               }
-           } catch (NullPointerException nullPointerException) {
-               System.out.println("do not enter empty characters");
-           } catch (NumberFormatException numberFormatException) {
-               System.out.println("entered wrong format");
-           }
-
-       }while (choice!=4);
+        } while (choice != 4);
     }
 
     void displayFacilityMenu() {
-        System.out.println("1\tDisplay list facility\n" +
-                "2\tAdd new facility\n" +
-                "3\tDisplay list facility maintenance\n" +
-                "4\tReturn main menu\n");
-       try {
-           choice = Integer.parseInt(scanner.nextLine());
-           if (choice<=0||choice>4){
-               System.out.println("Please enter the options available in the menu");
-           }
-           switch (choice) {
-               case 1:
+        do {
+            System.out.println("1\tDisplay list facility\n" +
+                    "2\tAdd new facility\n" +
+                    "3\tDisplay list facility maintenance\n" +
+                    "4\tReturn main menu\n");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                if (choice <= 0 || choice > 4) {
+                    System.out.println("Please enter the options available in the menu");
+                }
+                switch (choice) {
+                    case 1:
+                        facilityService.getAll();
+                        break;
+                    case 2:
+                        facilityService.add();
+                        break;
+                    case 3:
+                        facilityService.edit();
+                        break;
+                    case 4:
 
-                   break;
-               case 2:
+                        return;
 
-                   break;
-               case 3:
+                }
+            } catch (NullPointerException nullPointerException) {
+                System.out.println("do not enter empty characters");
+            } catch (NumberFormatException numberFormatException) {
+                System.out.println("entered wrong format");
+            }
+        } while (true);
 
-                   break;
-               case 4:
-
-                   return;
-
-           }
-       }catch (NullPointerException nullPointerException) {
-           System.out.println("do not enter empty characters");
-       } catch (NumberFormatException numberFormatException) {
-           System.out.println("entered wrong format");
-       }
     }
 
     void displayBookingMenu() {
-        System.out.println("1.\tAdd new booking\n" +
-                "2.\tDisplay list booking\n" +
-                "3.\tCreate new contracts\n" +
-                "4.\tDisplay list contracts\n" +
-                "5.\tEdit contracts\n" +
-                "6.\tReturn main menu\n");
-       try {
-           choice = Integer.parseInt(scanner.nextLine());
-           if (choice<=0||choice>6){
-               System.out.println("Please enter the options available in the menu");
-           }
-           switch (choice) {
-               case 1:
+        do {
+            System.out.println("1.\tAdd new booking\n" +
+                    "2.\tDisplay list booking\n" +
+                    "3.\tCreate new contracts\n" +
+                    "4.\tDisplay list contracts\n" +
+                    "5.\tEdit contracts\n" +
+                    "6.\tReturn main menu\n");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                if (choice <= 0 || choice > 6) {
+                    System.out.println("Please enter the options available in the menu");
+                }
+                switch (choice) {
+                    case 1:
+                        bookingService.add();
+                        break;
+                    case 2:
+                        bookingService.getAll();
+                        break;
+                    case 3:
+                        contactService.create();
+                        break;
+                    case 4:
+                        contactService.getAll();
+                        break;
+                    case 5:
+                        contactService.edit();
+                        break;
+                    case 6:
 
-                   break;
-               case 2:
-
-                   break;
-               case 3:
-
-                   break;
-               case 4:
-
-                   break;
-               case 5:
-
-                   break;
-               case 6:
-
-                   return;
-           }
-       }catch (NullPointerException nullPointerException) {
-           System.out.println("do not enter empty characters");
-       } catch (NumberFormatException numberFormatException) {
-           System.out.println("entered wrong format");
-       }
+                        return;
+                }
+            } catch (NullPointerException nullPointerException) {
+                System.out.println("do not enter empty characters");
+            } catch (NumberFormatException numberFormatException) {
+                System.out.println("entered wrong format");
+            }
+        } while (true);
     }
 
     void displayPromotionMenu() {
-        System.out.println("1.\tDisplay list customers use service\n" +
-                "2.\tDisplay list customers get voucher\n" +
-                "3.\tReturn main menu\n");
-       try {
-           choice = Integer.parseInt(scanner.nextLine());
-           switch (choice) {
-               case 1:
+        do {
+            System.out.println("1.\tDisplay list customers use service\n" +
+                    "2.\tDisplay list customers get voucher\n" +
+                    "3.\tReturn main menu\n");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        customerService.getAll();
+                        break;
+                    case 2:
+                        customerService.getVoucher();
+                        break;
+                    case 3:
 
-                   break;
-               case 2:
+                        return;
+                }
+            } catch (NullPointerException nullPointerException) {
+                System.out.println("do not enter empty characters");
+            } catch (NumberFormatException numberFormatException) {
+                System.out.println("entered wrong format");
+            }
+        }while (true);
 
-                   break;
-               case 3:
-
-                   return;
-           }
-       }catch (NullPointerException nullPointerException) {
-           System.out.println("do not enter empty characters");
-       } catch (NumberFormatException numberFormatException) {
-           System.out.println("entered wrong format");
-       }
     }
 
 }

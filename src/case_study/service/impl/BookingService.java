@@ -7,4 +7,15 @@ public class BookingService implements IBookingService {
     public void getAll() {
 
     }
+
+    @Override
+    public void add() {
+
+    }
+
+    @Override
+    public void edit() {
+
+    }
+
 }
