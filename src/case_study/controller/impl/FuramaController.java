@@ -67,16 +67,17 @@ public class FuramaController {
             System.out.println("1.\tDisplay list employees\n" +
                     "2.\tAdd new employee\n" +
                     "3.\tEdit employee\n" +
-                    "4.\tReturn main menu\n");
+                    "4\t.delete employee" +
+                    "5.\tReturn main menu\n");
             try {
                 choice = Integer.parseInt(scanner.nextLine());
-                if (choice <= 0 || choice > 4) {
+                if (choice <= 0 || choice > 5) {
                     System.out.println("Please enter the options available in the menu");
                     continue;
                 }
                 switch (choice) {
                     case 1:
-                        employeeService.getAll();
+                        employeeService.displayAll();
                         break;
                     case 2:
                         employeeService.add();
@@ -85,6 +86,9 @@ public class FuramaController {
                         employeeService.edit();
                         break;
                     case 4:
+
+                        break;
+                    case 5:
 
                         return;
 
@@ -110,7 +114,7 @@ public class FuramaController {
                 }
                 switch (choice) {
                     case 1:
-                        customerService.getAll();
+                        customerService.displayAll();
                         break;
                     case 2:
                         customerService.add();
@@ -143,7 +147,7 @@ public class FuramaController {
                 }
                 switch (choice) {
                     case 1:
-                        facilityService.getAll();
+                        facilityService.displayAll();
                         break;
                     case 2:
                         facilityService.add();
@@ -183,13 +187,13 @@ public class FuramaController {
                         bookingService.add();
                         break;
                     case 2:
-                        bookingService.getAll();
+                        bookingService.displayAll();
                         break;
                     case 3:
                         contactService.create();
                         break;
                     case 4:
-                        contactService.getAll();
+                        contactService.displayAll();
                         break;
                     case 5:
                         contactService.edit();
@@ -215,7 +219,7 @@ public class FuramaController {
                 choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
-                        customerService.getAll();
+                        customerService.displayAll();
                         break;
                     case 2:
                         customerService.getVoucher();
@@ -229,8 +233,7 @@ public class FuramaController {
             } catch (NumberFormatException numberFormatException) {
                 System.out.println("entered wrong format");
             }
-        }while (true);
+        } while (true);
 
     }
-
 }

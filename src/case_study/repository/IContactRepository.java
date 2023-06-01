@@ -1,4 +1,6 @@
 package case_study.repository;
 
-public interface IContactRepository {
+import case_study.model.contract.Contact;
+
+public interface IContactRepository extends IRepository<Contact> {
 }

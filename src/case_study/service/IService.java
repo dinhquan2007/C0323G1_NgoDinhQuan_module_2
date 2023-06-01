@@ -1,7 +1,9 @@
 package case_study.service;
 
-public interface IService {
-    void getAll();
+import java.util.List;
+
+public interface IService <T> {
+    void displayAll();
     void add();
     void edit();
 }

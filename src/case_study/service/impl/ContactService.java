@@ -2,10 +2,12 @@ package case_study.service.impl;
 
 import case_study.service.IContactService;
 
-public class ContactService implements IContactService {
-    @Override
-    public void getAll() {
+import java.util.List;
 
+public class ContactService implements IContactService {
+
+    @Override
+    public void displayAll() {
     }
 
     @Override

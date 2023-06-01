@@ -2,9 +2,12 @@ package case_study.service.impl;
 
 import case_study.service.IBookingService;
 
+import java.util.List;
+
 public class BookingService implements IBookingService {
+
     @Override
-    public void getAll() {
+    public void displayAll() {
 
     }
 
