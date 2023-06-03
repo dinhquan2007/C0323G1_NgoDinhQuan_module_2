@@ -7,16 +7,16 @@ public abstract class Person {
     private String name;
     private String birth;
     private String gender;
-    private String cnnd;
+    private String cmnd;
     private String phone;
     private String email;
 
-    public Person(String code, String name, String birth, String gender, String cnnd, String phone, String email) {
+    public Person(String code, String name, String birth, String gender, String cmnd, String phone, String email) {
         this.code = code;
         this.name = name;
         this.birth = birth;
         this.gender = gender;
-        this.cnnd = cnnd;
+        this.cmnd = cmnd;
         this.phone = phone;
         this.email = email;
     }
@@ -53,12 +53,12 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public String getCnnd() {
-        return cnnd;
+    public String getCmnd() {
+        return cmnd;
     }
 
-    public void setCnnd(String cnnd) {
-        this.cnnd = cnnd;
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
     }
 
     public String getPhone() {
@@ -97,7 +97,7 @@ public abstract class Person {
                 ", name='" + name + '\'' +
                 ", birth='" + birth + '\'' +
                 ", gender='" + gender + '\'' +
-                ", cnnd='" + cnnd + '\'' +
+                ", cnnd='" + cmnd + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'';
     }

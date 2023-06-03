@@ -17,5 +17,10 @@ public class ContactRepository implements IContactRepository {
 
     }
 
+    @Override
+    public Contact findById(String checkId) {
+        return null;
+    }
+
 
 }

@@ -19,6 +19,17 @@ public class ContactService implements IContactService {
     public void edit() {
 
     }
+
+    @Override
+    public void delete() {
+
+    }
+
+    @Override
+    public void find() {
+
+    }
+
     public void create(){
 
     }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IEmployeeRepository extends IRepository<Employee> {
 
-    Employee checkCode(String code);
+    void remove(Employee employeeDelete);
 }

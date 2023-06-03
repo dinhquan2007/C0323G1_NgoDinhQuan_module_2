@@ -19,4 +19,9 @@ public class FacilityRepository implements IFacilityRepository {
 
         }
     }
+
+    @Override
+    public Facility findById(String checkId) {
+        return null;
+    }
 }

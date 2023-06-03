@@ -6,4 +6,8 @@ public interface IService <T> {
     void displayAll();
     void add();
     void edit();
+
+    void delete();
+
+    void find();
 }

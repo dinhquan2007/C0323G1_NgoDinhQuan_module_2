@@ -18,4 +18,9 @@ public class BookingRepository implements IBookingRepository {
 
     }
 
+    @Override
+    public Booking findById(String checkId) {
+        return null;
+    }
+
 }
