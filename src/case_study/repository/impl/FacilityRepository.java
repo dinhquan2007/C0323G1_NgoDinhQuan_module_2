@@ -8,20 +8,4 @@ import java.util.List;
 
 public class FacilityRepository implements IFacilityRepository {
 
-    @Override
-    public List<Facility> getAll() {
-        return null;
-    }
-
-    @Override
-    public void add(Facility facility) {
-        if(facility instanceof Vila){
-
-        }
-    }
-
-    @Override
-    public Facility findById(String checkId) {
-        return null;
-    }
 }

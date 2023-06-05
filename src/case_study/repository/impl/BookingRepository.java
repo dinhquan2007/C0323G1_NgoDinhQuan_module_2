@@ -23,4 +23,18 @@ public class BookingRepository implements IBookingRepository {
         return null;
     }
 
+    @Override
+    public String getInfo(Booking booking) {
+        return null;
+    }
+
+    @Override
+    public void remove(Booking booking) {
+
+    }
+
+    @Override
+    public void editWriteToFile() {
+
+    }
 }

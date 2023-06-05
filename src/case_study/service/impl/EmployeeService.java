@@ -131,188 +131,197 @@ public class EmployeeService implements IEmployeeService {
             System.out.println("please enter code employee want edit");
             String checkId = scanner.nextLine();
             Employee employeeEdit = employeeRepository.findById(checkId);
-            System.out.println("You want to edit selection :\n" +
-                    "1.edit code employee\n" +
-                    "2.edit name employee\n" +
-                    "3.edit birth employee\n" +
-                    "4.edit gender employee\n" +
-                    "5.edit cmnd employee\n" +
-                    "6.edit phone employee\n" +
-                    "7.edit email employee\n" +
-                    "8.edit level employee\n" +
-                    "9.edit position employee\n" +
-                    "10.edit salary employee\n" +
-                    "0.exit");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1:
-                    String codeEdit;
-                    do {
-                        System.out.println("enter new code");
-                        codeEdit = scanner.nextLine();
-                        if (codeEdit.matches(CODE_REGEX)) {
-                            employeeEdit.setCode(codeEdit);
-                            break;
-                        } else {
-                            System.out.println("please enter format CV-XXXX");
-                        }
-                    } while (true);
-                    break;
 
-                case 2:
-                    String nameEdit;
-                    do {
-                        System.out.println("enter new name");
-                        nameEdit = scanner.nextLine();
-                        if (nameEdit.matches(NAME_REGEX)) {
-                            employeeEdit.setCode(nameEdit);
-                            break;
-                        } else {
-                            System.out.println("please enter name true format ");
-                        }
-                    } while (true);
-                    break;
+            if (employeeEdit == null) {
+                System.out.println("do not exist");
+            } else {
+                System.out.println("You want to edit selection :\n" +
+                        "1.edit code employee\n" +
+                        "2.edit name employee\n" +
+                        "3.edit birth employee\n" +
+                        "4.edit gender employee\n" +
+                        "5.edit cmnd employee\n" +
+                        "6.edit phone employee\n" +
+                        "7.edit email employee\n" +
+                        "8.edit level employee\n" +
+                        "9.edit position employee\n" +
+                        "10.edit salary employee\n" +
+                        "0.exit");
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        String codeEdit;
+                        do {
+                            System.out.println("enter new code");
+                            codeEdit = scanner.nextLine();
+                            if (codeEdit.matches(CODE_REGEX)) {
+                                employeeEdit.setCode(codeEdit);
+                                break;
+                            } else {
+                                System.out.println("please enter format CV-XXXX");
+                            }
+                        } while (true);
+                        break;
 
-                case 3:
-                    String birthEdit;
-                    do {
-                        System.out.println("enter new birth");
-                        birthEdit = scanner.nextLine();
-                        if (birthEdit.matches(BIRTH_REGEX)) {
-                            employeeEdit.setCode(birthEdit);
-                            break;
-                        } else {
-                            System.out.println("please re-enter birth true format dd/mm/yyyy");
-                        }
-                    } while (true);
-                    break;
+                    case 2:
+                        String nameEdit;
+                        do {
+                            System.out.println("enter new name");
+                            nameEdit = scanner.nextLine();
+                            if (nameEdit.matches(NAME_REGEX)) {
+                                employeeEdit.setCode(nameEdit);
+                                break;
+                            } else {
+                                System.out.println("please enter name true format ");
+                            }
+                        } while (true);
+                        break;
+
+                    case 3:
+                        String birthEdit;
+                        do {
+                            System.out.println("enter new birth");
+                            birthEdit = scanner.nextLine();
+                            if (birthEdit.matches(BIRTH_REGEX)) {
+                                employeeEdit.setCode(birthEdit);
+                                break;
+                            } else {
+                                System.out.println("please re-enter birth true format dd/mm/yyyy");
+                            }
+                        } while (true);
+                        break;
 //                gender
-                case 4:
-                    int selection;
-                    String genderEdit;
-                    do {
-                        System.out.println("enter new gender :\n" +
-                                "1.Man\n" +
-                                "2.Women");
-                        selection = Integer.parseInt(scanner.nextLine());
-                        if (selection == 1) {
-                            genderEdit = "Man";
-                            employeeEdit.setGender(genderEdit);
-                            break;
-                        } else if (selection == 2) {
-                            genderEdit = "Women";
-                            employeeEdit.setGender(genderEdit);
-                            break;
-                        } else {
-                            System.out.println("please re-enter 1 or 2");
-                        }
-                    } while (true);
-                    break;
+                    case 4:
+                        int selection;
+                        String genderEdit;
+                        do {
+                            System.out.println("enter new gender :\n" +
+                                    "1.Man\n" +
+                                    "2.Women");
+                            selection = Integer.parseInt(scanner.nextLine());
+                            if (selection == 1) {
+                                genderEdit = "Man";
+                                employeeEdit.setGender(genderEdit);
+                                break;
+                            } else if (selection == 2) {
+                                genderEdit = "Women";
+                                employeeEdit.setGender(genderEdit);
+                                break;
+                            } else {
+                                System.out.println("please re-enter 1 or 2");
+                            }
+                        } while (true);
+                        break;
 //                    cmnd
 
-                case 5:
-                    String cmndEdit;
-                    do {
-                        System.out.println("enter new cmnd");
-                        cmndEdit = scanner.nextLine();
-                        if (cmndEdit.matches(CMND_REGEX)) {
-                            employeeEdit.setCmnd(cmndEdit);
-                            break;
-                        } else {
-                            System.out.println("please re-enter cmnd true format");
-                        }
-                    } while (true);
-                    break;
+                    case 5:
+                        String cmndEdit;
+                        do {
+                            System.out.println("enter new cmnd");
+                            cmndEdit = scanner.nextLine();
+                            if (cmndEdit.matches(CMND_REGEX)) {
+                                employeeEdit.setCmnd(cmndEdit);
+                                break;
+                            } else {
+                                System.out.println("please re-enter cmnd true format");
+                            }
+                        } while (true);
+                        break;
 //                    phone
-                case 6:
-                    String phoneEdit;
-                    do {
-                        System.out.println("enter new phone");
-                        phoneEdit = scanner.nextLine();
-                        if (phoneEdit.matches(PHONE_REGEX)) {
-                            employeeEdit.setPhone(phoneEdit);
-                            break;
-                        } else {
-                            System.out.println("please re-enter phone true format");
-                        }
-                    } while (true);
-                    break;
+                    case 6:
+                        String phoneEdit;
+                        do {
+                            System.out.println("enter new phone");
+                            phoneEdit = scanner.nextLine();
+                            if (phoneEdit.matches(PHONE_REGEX)) {
+                                employeeEdit.setPhone(phoneEdit);
+                                break;
+                            } else {
+                                System.out.println("please re-enter phone true format");
+                            }
+                        } while (true);
+                        break;
 //                      email
-                case 7:
-                    String emailEdit;
-                    do {
-                        System.out.println("enter new email");
-                        emailEdit = scanner.nextLine();
-                        if (emailEdit.matches(EMAIL_REGEX)) {
-                            employeeEdit.setEmail(emailEdit);
-                            break;
-                        } else {
-                            System.out.println("please re-enter email true format");
-                        }
-                    } while (true);
-                    break;
+                    case 7:
+                        String emailEdit;
+                        do {
+                            System.out.println("enter new email");
+                            emailEdit = scanner.nextLine();
+                            if (emailEdit.matches(EMAIL_REGEX)) {
+                                employeeEdit.setEmail(emailEdit);
+                                break;
+                            } else {
+                                System.out.println("please re-enter email true format");
+                            }
+                        } while (true);
+                        break;
 //
-                case 8:
-                    String choose;
-                    do {
-                        System.out.println("enter new level employee\n" +
-                                "1.Intermediate\n" +
-                                "2.College\n" +
-                                "3.Undergraduate\n" +
-                                "4.Graduate");
-                        choose = scanner.nextLine();
-                        if (choose == "1") {
-                            employeeEdit.setLevel("Intermediate");
-                            break;
-                        } else if (choose == "2") {
-                            employeeEdit.setLevel("College");
-                            break;
-                        } else if (choose == "3") {
-                            employeeEdit.setLevel("Undergraduate");
-                            break;
-                        } else if (choose == "4") {
-                            employeeEdit.setLevel("Graduate");
-                            break;
-                        } else {
-                            System.out.println("re-enter 1-4");
-                        }
-                    } while (true);
-                    break;
+                    case 8:
+                        String choose;
+                        do {
+                            System.out.println("enter new level employee\n" +
+                                    "1.Intermediate\n" +
+                                    "2.College\n" +
+                                    "3.Undergraduate\n" +
+                                    "4.Graduate");
+                            choose = scanner.nextLine();
+                            if (choose == "1") {
+                                employeeEdit.setLevel("Intermediate");
+                                break;
+                            } else if (choose == "2") {
+                                employeeEdit.setLevel("College");
+                                break;
+                            } else if (choose == "3") {
+                                employeeEdit.setLevel("Undergraduate");
+                                break;
+                            } else if (choose == "4") {
+                                employeeEdit.setLevel("Graduate");
+                                break;
+                            } else {
+                                System.out.println("re-enter 1-4");
+                            }
+                        } while (true);
+                        break;
 //                  position
-                case 9:
-                    String positionEdit;
-                    System.out.println("enter new position");
-                    positionEdit = scanner.nextLine();
-                    employeeEdit.setPosition(positionEdit);
-                    break;
+                    case 9:
+                        String positionEdit;
+                        System.out.println("enter new position");
+                        positionEdit = scanner.nextLine();
+                        employeeEdit.setPosition(positionEdit);
+                        break;
 //                  salary
-                case 10:
-                    String salaryEdit;
-                    do {
-                        System.out.println("enter new code");
-                        salaryEdit = scanner.nextLine();
-                        if (salaryEdit.matches(SALARY_REGEX)) {
-                            employeeEdit.setSalary(salaryEdit);
-                            break;
-                        } else {
-                            System.out.println("re-enter new salary true format");
-                        }
-                    } while (true);
-                    break;
-                case 0:
-                    return;
+                    case 10:
+                        String salaryEdit;
+                        do {
+                            System.out.println("enter new code");
+                            salaryEdit = scanner.nextLine();
+                            if (salaryEdit.matches(SALARY_REGEX)) {
+                                employeeEdit.setSalary(salaryEdit);
+                                break;
+                            } else {
+                                System.out.println("re-enter new salary true format");
+                            }
+                        } while (true);
+                        break;
+                    case 0:
+                        return;
+                }
+                break;
             }
         } while (true);
+        employeeRepository.editWriteToFile();
+
     }
+
 
     @Override
     public void delete() {
         System.out.println("please enter code employee you want delete");
-        String checkId=scanner.nextLine();
-        Employee employeeDelete= employeeRepository.findById(checkId);
-        if (employeeDelete ==null){
-            System.out.println("does not exist employee with code :"+checkId);
-        }else {
+        String checkId = scanner.nextLine();
+        Employee employeeDelete = employeeRepository.findById(checkId);
+        if (employeeDelete == null) {
+            System.out.println("does not exist employee with code :" + checkId);
+        } else {
             employeeRepository.remove(employeeDelete);
         }
     }
@@ -320,11 +329,11 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void find() {
         System.out.println("please enter code employee search ");
-        String checkId=scanner.nextLine();
-        Employee employee= employeeRepository.findById(checkId);
-        if (employee ==null){
-            System.out.println("does not exist employee with code :"+checkId);
-        }else {
+        String checkId = scanner.nextLine();
+        Employee employee = employeeRepository.findById(checkId);
+        if (employee == null) {
+            System.out.println("does not exist employee with code :" + checkId);
+        } else {
             System.out.println(employee.getCode() + "," + employee.getName() + "," + employee.getBirth() + "," + employee.getGender()
                     + "," + employee.getCmnd() + "," + employee.getPhone() + "," + employee.getEmail() + "," + employee.getLevel()
                     + "," + employee.getPosition() + "," + employee.getSalary());

@@ -56,6 +56,16 @@ public class EmployeeRepository implements IEmployeeRepository {
         readAndWrite.writeToFile(EMPLOYEE_PATH, strings, false);
     }
 
+    @Override
+    public void editWriteToFile() {
+        List<String> strings = new ArrayList<>();
+        employeeList = getAll();
+        for (Employee e : employeeList) {
+            strings.add(getInfo(e));
+        }
+        readAndWrite.writeToFile(EMPLOYEE_PATH, strings, false);
+    }
+
     public String getInfo(Employee employee) {
         return employee.getCode() + "," + employee.getName() + "," + employee.getBirth() + "," + employee.getGender()
                 + "," + employee.getCmnd() + "," + employee.getPhone() + "," + employee.getEmail() + "," + employee.getLevel()

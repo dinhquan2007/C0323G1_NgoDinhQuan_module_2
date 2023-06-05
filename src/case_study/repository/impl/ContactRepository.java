@@ -22,5 +22,20 @@ public class ContactRepository implements IContactRepository {
         return null;
     }
 
+    @Override
+    public String getInfo(Contact contact) {
+        return null;
+    }
+
+    @Override
+    public void remove(Contact contact) {
+
+    }
+
+    @Override
+    public void editWriteToFile() {
+
+    }
+
 
 }
