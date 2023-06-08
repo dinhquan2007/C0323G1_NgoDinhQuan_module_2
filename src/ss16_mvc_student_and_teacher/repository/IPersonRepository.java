@@ -4,14 +4,14 @@ import ss16_mvc_student_and_teacher.model.Student;
 
 import java.util.List;
 
-public interface IPersonRepository {
-    void add(Object obj);
+public interface IPersonRepository<E> {
+    void add(E e);
 
 //    boolean searchWithByCode(String code);
 
-    List<Student> getAll();
+    List<E> getAll();
 
-    Student getById(String code);
+    E getById(String code);
 
-//    boolean searchWithByCode(String code);
+    void remove(E e);
 }

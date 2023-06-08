@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Student extends Person{
     private String classes;
 
-    private float point;
+    private String point;
 
-    public Student(String id, String name, String birth, String gender, String classes, float point) {
+    public Student(String id, String name, String birth, String gender, String classes, String point) {
         super(id, name, birth, gender);
         this.classes = classes;
         this.point = point;
@@ -21,26 +21,24 @@ public class Student extends Person{
         this.classes = classes;
     }
 
-    public float getPoint() {
+    public String getPoint() {
         return point;
     }
 
-    public void setPoint(float point) {
+    public void setPoint(String point) {
         this.point = point;
     }
 
     @Override
     public String getInfoToFileCSV() {
-        return super.getInfoToFileCSV()+','+this.classes+','+this.point;
+        return super.getInfoToFileCSV()+","+this.classes+","+this.point;
     }
 
     @Override
     public String toString() {
         return "Student{" +super.toString()+
-                "classes='" + classes + '\'' +
-                ", point=" + point +
+                ",classes='" + classes + '\'' +
+                ",point='" + point + '\'' +
                 '}';
     }
-
-
 }

@@ -39,7 +39,7 @@ public abstract class  Person {
         this.birth = birth;
     }
 
-    public String isGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -48,15 +48,15 @@ public abstract class  Person {
     }
 
     public String getInfoToFileCSV(){
-        return this.id+','+this.name+','+this.birth+','+this.gender;
+        return this.id+","+this.name+","+this.birth+","+this.gender;
     }
 
     @Override
     public String toString() {
-        return  "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", birth='" + birth + '\'' +
-                ", gender='" + gender + '\'';
+        return "id='" + id + '\'' +
+                ",name='" + name + '\'' +
+                ",birth='" + birth + '\'' +
+                ",gender='" + gender + '\'';
     }
 
     @Override

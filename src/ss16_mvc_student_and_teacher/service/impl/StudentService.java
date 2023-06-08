@@ -5,16 +5,18 @@ import ss16_mvc_student_and_teacher.repository.IPersonRepository;
 import ss16_mvc_student_and_teacher.repository.impl.StudentRepository;
 import ss16_mvc_student_and_teacher.service.IPersonService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements IPersonService {
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final IPersonRepository studentRepository = new StudentRepository();
+    private static  Scanner scanner = new Scanner(System.in);
+    private static IPersonRepository studentRepository = new StudentRepository();
 
     @Override
     public void displayAll() {
+        List studentList= studentRepository.getAll();
         try {
-            for (Student s : studentRepository.getAll()) {
+            for (Object s : studentList) {
                 System.out.println(s);
             }
         } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
@@ -24,8 +26,8 @@ public class StudentService implements IPersonService {
 
     @Override
     public void add() {
-        String code = scanner.nextLine();
         System.out.println("nhập vào mã học viên");
+        String code = scanner.nextLine();
         System.out.println("nhập vào tên học viên");
         String name = scanner.nextLine();
         System.out.println("nhập vào năm sinh học viên");
@@ -53,8 +55,7 @@ public class StudentService implements IPersonService {
         String classes = scanner.nextLine();
         System.out.println("nhập vào điểm học viên");
         String point = scanner.nextLine();
-        Student student = new Student(code, name, birth, gender, classes, Float.parseFloat(point));
-        studentRepository.add(student);
+        studentRepository.add(new Student(code, name, birth, gender, classes, point));
         System.out.println("đã thêm học viên thành công");
     }
 
@@ -67,10 +68,11 @@ public class StudentService implements IPersonService {
         switch (chose){
             case 1:
                 System.out.println("nhập vào mã hs");
-                String code=scanner.nextLine();
-//                if (studentRepository.searchWithByCode(code)!=null){
-//                    studentRepository.remove();
-//                }
+                String code= scanner.nextLine();
+                Student studentDelete= (Student) studentRepository.getById(code);
+                if (studentRepository.getById(code)!=null){
+                    studentRepository.remove(studentDelete);
+                }
         }
     }
 }
